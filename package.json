@@ -1,6 +1,6 @@
 {
   "name": "thermal-ui",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Thermal UI Components",
   "main": "index-bundle.js",
   "scripts": {
