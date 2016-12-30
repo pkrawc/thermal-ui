@@ -1,7 +1,6 @@
 # Thermal UI Components
-
-[![build status](https://img.shields.io/travis/pkrawc/rent-ui-components/master.svg?style=flat-square)](https://travis-ci.org/pkrawc/rent-ui-components)
-[![npm version](https://img.shields.io/npm/v/rent-ui-components.svg?style=flat-square)](https://www.npmjs.com/package/rent-ui-components)
+[![build status](https://img.shields.io/travis/pkrawc/thermal-ui/master.svg?style=flat-square)](https://travis-ci.org/pkrawc/thermal-ui)
+[![npm version](https://img.shields.io/npm/v/thermal-ui.svg?style=flat-square)](https://www.npmjs.com/package/thermal-ui)
 
 
 `
@@ -50,32 +49,28 @@ npm install react styled-components thermal-ui
   - Notification
   - ProgressBar
 
-### Typography
-
+## Typography
 A set of wrappers to create consistent and styled text, no matter the screen
 
-#### Hero
-
+### Hero
 ```javascript
 <Hero right center color="#F9F9F9">
   Lorem Ipsum Hero
 </Hero>
 ```
-#### Headline
-
+### Headline
 ```javascript
 <Headline right center color="#F9F9F9">
   Lorem Ipsum Headline
 </Headline>
 ```
 
-### Contributing
-
+## Contributing
 1. Make sure your contribution is aligned with the Style Guide
-2. Submit a PR
-3. On PR approval:
+1. Submit a PR
+1. On PR approval:
   - merge into master
   - pull master locally
   - `npm version <major|minor|patch> -m "tell us about the change"`
   - `git push origin master && git push origin v<version-npm-gives-you>`
-4. Profit???
+1. Profit???
