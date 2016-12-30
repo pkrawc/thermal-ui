@@ -1,0 +1,12 @@
+node_modules
+npm-debug.log
+.idea/
+*.woff
+*.eot
+*.woff2
+*.ttf
+example-build.js
+example-build.js.map
+index-build.js
+index-build.js.map
+index.html

@@ -1,0 +1,11 @@
+language: node_js
+node_js:
+- node
+deploy:
+  provider: npm
+  email: pkrawz@gmail.com
+  on:
+    tags: true
+    repo: pkrawc/rent-ui-components
+  api_key:
+    secure: F57PDHXZIEBkfUS3MvJsABeBh8b1PggsS9b8B1Zz2+R+HHvIvYHwfDeiJTx6S5ARUoUV93bBA89HsbkA/zHr2xOgTnPaS/NYg8tKOLm4xB0hzSy4jCNTMcdD7GMDpLfhfuMefWbfpbsYrPB2soPCQrJWWV658WdtL+2mam4xENMx/zlOYUgnP7Z2qZWWQUyvRVFWiNKs52OlfUuN6rDFHLLhTma7PCFyQzq04AzGoT1Q4y4Y8Qoy/WC8re80jM/yvJw//Un4f/U3d7kJWKQDVxvJC4PBf8OitkxebTbU2jllZOBzM50hs6BK+3tFikyc4s+XGUPWcdq9mdeJAEuUXxkT3EfUNNFP1JN6ll+e7LA5CdycvMNeOygQKsIU9is+aKl+nlKWpEchrOIiKnh9qR0Sbo2GitPNVT/ecWW1GGVKj5l30/wJfPEyU3YHysBypYWPRsod6yDamREZdOxWMaD3PTg3FQZe5bJZLhlnSSAm3+tkbPjwl60aNhdQMhI4UU3O+kvYB8VcOhNvvf6c8Y5PzMSXSwiwVzx3vTutDnopvdlKzwWlXckUcVJluxCSCM+DRaiZMe/ADgSxtm6oRNgaz7zSHdSDMlcmW6zw6bvFIMcf6g43JleBkPK0Gdxs3GOOsrNjZ8pyJ+eUSv3aL16dEvj/E8N1CtJEI9bzlv4=
