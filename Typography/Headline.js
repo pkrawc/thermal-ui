@@ -7,4 +7,5 @@ export const Headline = styled.h3`
   font-size: 1.5em;
   font-weight: 500;
   line-height: 1.2;
+  text-align: ${ ({right, center}) => right ? 'right' : center ? 'center' : 'left' };
 `
