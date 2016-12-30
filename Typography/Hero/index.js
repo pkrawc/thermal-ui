@@ -1,11 +1,11 @@
 import styled from 'styled-components'
-import { colors } from '../variables'
+import { colors } from 'variables'
 
-export const Headline = styled.h3`
+export const Hero = styled.h1`
   margin: 1rem 0;
   color: ${({light}) => light ? colors.light : colors.dark};
-  font-size: 1.5em;
-  font-weight: 500;
-  line-height: 1.2;
   text-align: ${ ({right, center}) => right ? 'right' : center ? 'center' : 'left' };
+  font-size: 4em;
+  font-weight: 300;
+  line-height: 1.2;
 `

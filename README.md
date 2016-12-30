@@ -2,52 +2,67 @@
 [![build status](https://img.shields.io/travis/pkrawc/thermal-ui/master.svg?style=flat-square)](https://travis-ci.org/pkrawc/thermal-ui)
 [![npm version](https://img.shields.io/npm/v/thermal-ui.svg?style=flat-square)](https://www.npmjs.com/package/thermal-ui)
 
+:fire::fire::fire:
 
-`
+## Usage
+```bash
 npm install react styled-components thermal-ui
-`
+```
 
-- [Typography](#typography)
-  - [Hero](#hero)
-  - [Headline](#headline)
-  - Title
-  - Subtitle
-  - Text
-- General
-  - Button
-  - Icon
-- Navigation
-  - BottomBar
-  - Breadcrumb
-  - Dropdown
-  - Menu
-  - Tabs
-  - TopBar
-  - Steps
-- Fields
-  - Checkbox
-  - DatePicker
-  - Form
-  - Input
-  - Radio
-  - Rate
-  - Select
-  - Slider
-  - Switch
-  - Upload
-- Display
-  - Badge
-  - Card
-  - Carousel
-  - Calendar
-  - Timeline
-  - Table
-- Feedback
-  - Alert
-  - Dialogue
-  - Loader
-  - Notification
-  - ProgressBar
+
+## Table of Contents
++ [Layout](#layout)
+  + [Column](#column)
+  + [Container](#container)
+  + [Row](#row)
+
++ [Typography](#typography)
+  + [Hero](#hero)
+  + [Headline](#headline)
+  + [Title](#title)
+  + [Subtitle](#subtitle)
+  + [Text](#text)
+
++ General
+  + Button
+  + Icon
++ Navigation
+  + BottomBar
+  + Breadcrumb
+  + Dropdown
+  + Menu
+  + Tabs
+  + TopBar
+  + Steps
++ Fields
+  + Checkbox
+  + DatePicker
+  + Form
+  + Input
+  + Radio
+  + Rate
+  + Select
+  + Slider
+  + Switch
+  + Upload
++ Display
+  + Badge
+  + Card
+  + Carousel
+  + Calendar
+  + Timeline
+  + Table
++ Feedback
+  + Alert
+  + Dialogue
+  + Loader
+  + Notification
+  + ProgressBar
+
+## Layout
+### Container
+### Column
+### Row
 
 ## Typography
 A set of wrappers to create consistent and styled text, no matter the screen

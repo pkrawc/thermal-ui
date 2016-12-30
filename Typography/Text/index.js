@@ -1,10 +1,10 @@
 import styled from 'styled-components'
-import { colors } from '../variables'
+import { colors } from 'variables'
 
-export const Title = styled.h2`
+export const Text = styled.p`
   margin: 1rem 0;
   color: ${({light}) => light ? colors.light : colors.dark};
-  font-size: 2em;
-  font-weight: 500;
+  font-size: 1em;
+  font-weight: 400;
   line-height: 1.2;
 `

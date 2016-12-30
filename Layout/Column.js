@@ -3,7 +3,7 @@ import { media } from '../variables'
 
 const getPercent = (col, total = 12) => `${100 / (total/col)}%`
 
-const Column = styled.div`
+export const Column = styled.div`
   display: flex;
   flex-direction: column;
   flex-grow: 1;
@@ -48,5 +48,3 @@ const Column = styled.div`
     };
   }
 `
-
-export default Column

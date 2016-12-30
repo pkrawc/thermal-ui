@@ -46,6 +46,9 @@ module.exports = {
   resolve: {
     root: path.join(__dirname),
     exclude: /node_modules/,
+    alias: {
+      variables: 'variables'
+    },
     extensions: ['', '.js', '.jsx', '.es6']
   }
 }

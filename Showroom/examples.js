@@ -1,1 +1,1 @@
-export * as Typography from '../Typography/examples'
+export { default as Typography } from '../Typography/examples'
