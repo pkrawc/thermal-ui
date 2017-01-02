@@ -1,5 +1,5 @@
 import React from 'react'
-import renderer from 'react-test-render'
+import renderer from 'react-test-renderer'
 import { Button } from '../Button'
 
 test('renders correctly', () => {
