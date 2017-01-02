@@ -7,7 +7,7 @@ const ShowroomMenu = styled.ul`
   background-color: ${colors.light};
   list-style: none;
   width: 100%;
-  max-width: 300px;
+  max-width: 12.5em;
 `
 
 ShowroomMenu.ListItem = styled.li`

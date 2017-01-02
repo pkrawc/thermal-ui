@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { media } from '../variables'
+import { media } from 'variables'
 
 const getPercent = (col, total = 12) => `${100 / (total/col)}%`
 

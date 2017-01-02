@@ -10,8 +10,8 @@ export const colors = {
 }
 
 export const shadows = {
-  small: '0 1px 3px rgba(0,0,0,0.12)',
-  medium: '0 3px 6px rgba(0,0,0,0.24)',
+  small: '0 1px 3px rgba(0,0,0,0.24)',
+  medium: '0 3px 6px rgba(0,0,0,0.12)',
   large: '0 6px 10px rgba(0,0,0,0.4)'
 }
 

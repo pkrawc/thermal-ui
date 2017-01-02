@@ -15,17 +15,15 @@ npm install react styled-components thermal-ui
   + [Column](#column)
   + [Container](#container)
   + [Row](#row)
-
 + [Typography](#typography)
   + [Hero](#hero)
   + [Headline](#headline)
   + [Title](#title)
   + [Subtitle](#subtitle)
   + [Text](#text)
-
-+ General
-  + Button
-  + Icon
++ [General](#general)
+  + [Button](#button)
+  + [Icon](#icon)
 + Navigation
   + BottomBar
   + Breadcrumb
@@ -60,9 +58,29 @@ npm install react styled-components thermal-ui
   + ProgressBar
 
 ## Layout
+Standard display components to build your app in the cleanest way possible.
+
 ### Container
+```javascript
+<Container flex flexColumn padded>
+  children
+</Container>
+```
+
 ### Column
+```javascript
+<Column smCol={12} mdCol={12} lgCol={12}>
+  children
+</Column>
+```
 ### Row
+```javascript
+<Row>
+  <Column></Column>
+  <Column></Column>
+  <Column></Column>
+</Row>
+```
 
 ## Typography
 A set of wrappers to create consistent and styled text, no matter the screen
@@ -73,12 +91,37 @@ A set of wrappers to create consistent and styled text, no matter the screen
   Lorem Ipsum Hero
 </Hero>
 ```
+
 ### Headline
 ```javascript
 <Headline right center color="#F9F9F9">
   Lorem Ipsum Headline
 </Headline>
 ```
+
+### Title
+```javascript
+<Title right center color="#F9F9F9">
+  Lorem Ipsum Title
+</Title>
+```
+
+### Subtitle
+```javascript
+<Subtitle right center color="#F9F9F9">
+  Lorem Ipsum Subtitle
+</Subtitle>
+```
+
+### Text
+```javascript
+<Text right center color="#F9F9F9">
+  Lorem Ipsum Text
+</Text>
+```
+
+## General
+
 
 ## Contributing
 1. Make sure your contribution is aligned with the Style Guide

@@ -3,7 +3,7 @@ import { colors } from 'variables'
 
 export const Headline = styled.h3`
   margin: 1rem 0;
-  color: ${({light}) => light ? colors.light : colors.dark};
+  color: ${({color}) => color ? color : colors.dark};
   font-size: 2em;
   font-weight: 400;
   line-height: 1.2;
