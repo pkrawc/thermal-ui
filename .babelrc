@@ -6,7 +6,6 @@
   ],
   "plugins": [
     ["module-resolver", {
-      "root": ["./"],
       "alias": {
         "variables": "./variables"
       }

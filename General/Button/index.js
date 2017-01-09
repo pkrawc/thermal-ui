@@ -15,15 +15,24 @@ export const Button = styled.button`
   border: 2px solid ${({color}) => color ? color : colors.dark};
   border-radius: 2px;
   box-shadow: none;
-  color: ${({color}) => color ? color : colors.dark};
+  color: ${
+    ({color, primary}) => {
+      if (primary) return colors.light
+      else {
+        if (color) return color
+        else return colors.dark
+      }
+    }
+  };
   cursor: pointer;
   font-size: 1rem;
   font-weight: 600;
+  min-width: 4rem;
+  outline: none;
   text-align: center;
   text-transform: uppercase;
   transition: all 150ms ease-in-out;
-  min-width: 4rem;
-  outline: none;
+  white-space: nowrap;
   &:hover {
     background-color: ${
       ({primary, color}) => {
@@ -37,8 +46,11 @@ export const Button = styled.button`
     };
     box-shadow: ${shadows.medium};
     color: ${
-      ({primary}) => {
-        if (primary) return colors.dark
+      ({primary, color}) => {
+        if (primary) {
+          if (color) return color
+          else return colors.dark
+        }
         else return colors.light
       }
     };

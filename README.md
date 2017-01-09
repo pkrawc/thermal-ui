@@ -48,6 +48,9 @@ npm install react styled-components thermal-ui
   + Card
   + Carousel
   + Calendar
+  + Code
+  + List
+  + ListItem
   + Timeline
   + Table
 + Feedback

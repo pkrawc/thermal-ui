@@ -1,5 +1,5 @@
 const path = require('path')
-const Webpack = require('webpack')
+const webpack = require('webpack')
 const WebpackHtmlWebpackPlugin = require('html-webpack-plugin')
 const WebpackErrorNotificationPlugin = require('webpack-error-notification')
 
@@ -34,11 +34,13 @@ module.exports = {
     ]
   },
   plugins: [
-    new Webpack.DefinePlugin({
+    new webpack.optimize.DedupePlugin(),
+    new webpack.optimize.OccurrenceOrderPlugin(),
+    new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
     }),
     new WebpackErrorNotificationPlugin(),
-    new Webpack.NoErrorsPlugin(),
+    new webpack.NoErrorsPlugin(),
     new WebpackHtmlWebpackPlugin({
       template: 'example.html'
     })
@@ -46,9 +48,6 @@ module.exports = {
   resolve: {
     root: path.join(__dirname),
     exclude: /node_modules/,
-    alias: {
-      variables: 'variables'
-    },
     extensions: ['', '.js', '.jsx', '.es6']
   }
 }
