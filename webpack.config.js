@@ -41,7 +41,8 @@ const config = {
     }),
     new WebpackHtmlWebpackPlugin({
       template: 'src/example.html',
-      filename: 'docs/index.html'
+      filename: 'docs/index.html',
+      excludeChunks: ['build/']
     }),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
