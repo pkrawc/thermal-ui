@@ -1,10 +1,10 @@
 node_modules
+build
+
 npm-debug.log
 .idea/
 *.woff
 *.eot
 *.woff2
 *.ttf
-index-build.js
-index-build.js.map
 keys.md
