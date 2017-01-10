@@ -2,6 +2,7 @@ const path = require('path')
 const webpack = require('webpack')
 const WebpackHtmlWebpackPlugin = require('html-webpack-plugin')
 const WebpackErrorNotificationPlugin = require('webpack-error-notification')
+const build = process.env.BUILD
 
 module.exports = {
   cache: true,
@@ -16,7 +17,7 @@ module.exports = {
     index: './index'
   },
   output: {
-    path: './',
+    path: build ? './docs' : './',
     filename: '[name]-build.js',
     chunkFilename: '[id].js',
     publicPath: '/',
