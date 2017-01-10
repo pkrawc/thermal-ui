@@ -2,13 +2,12 @@
   "name": "thermal-ui",
   "version": "0.0.3",
   "description": "Thermal UI Components",
-  "main": "index-bundle.js",
+  "main": "build/index.js",
   "scripts": {
     "start": "webpack-dev-server --host 0.0.0.0 --history-api-fallback",
     "test": "jest",
     "test:update": "jest -u",
-    "build": "webpack",
-    "build:site" : "SITE=true webpack",
+    "build": "NODE_ENV=production webpack",
     "prepublish": "npm run build"
   },
   "author": "Patrick Krawczykowski",

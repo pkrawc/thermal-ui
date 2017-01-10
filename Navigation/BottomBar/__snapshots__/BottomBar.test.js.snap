@@ -1,9 +1,0 @@
-exports[`test renders bottom bar correctly 1`] = `
-<div
-  className="fiKsrE">
-  <div
-    className="fdOBWg">
-    Hello World
-  </div>
-</div>
-`;

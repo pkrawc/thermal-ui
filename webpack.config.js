@@ -1,65 +1,55 @@
 const path = require('path')
 const webpack = require('webpack')
 const WebpackHtmlWebpackPlugin = require('html-webpack-plugin')
-const WebpackErrorNotificationPlugin = require('webpack-error-notification')
-const site = process.env.SITE
+const prod = process.env.NODE_ENV === 'production'
 
-module.exports = {
+const config = {
   cache: true,
   debug: true,
-  devtool: 'inline-source-map',
+  devtool: prod ? 'eval' : 'inline-source-map',
   devServer: {
     hot: true,
-    noInfo: true
+    quite: true
   },
-  entry: site ? [
-    './example'
-  ] : {
-    example: './example',
-    index: './index'
+  entry: {
+    'docs/' : './src/example.js',
+    'build/' : './src/index.js'
   },
-  output: site ? {
-    path: './docs',
-    filename: 'example.min.js'
-  } : {
-    path: './',
-    filename: '[name]-build.js',
-    chunkFilename: '[id].js',
+  output: {
+    path: path.join(__dirname, '/'),
     publicPath: '/',
+    filename: '[name]index.js',
+    chunkFilename: '[id].js',
     library: 'thermal-ui',
     libraryTarget: 'umd',
     umdNamedDefine: true
   },
   module: {
     loaders: [
-      {
-        test: /\.(jsx?|es6)$/,
-        loader: 'babel',
-        exclude: [/node_modules/]
-      }
+      { test: /\.(jsx?|es6)$/, loader: 'babel', exclude: [/node_modules/] }
     ]
   },
-  plugins: site ? [
+  plugins: prod ? [
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.optimize.UglifyJsPlugin({
+      sourceMap: false,
+      mangle: false,
       compress: {
         warnings: false
       }
     }),
     new WebpackHtmlWebpackPlugin({
-      template: 'example.html'
-    })
-  ] : [
-    new webpack.optimize.DedupePlugin(),
-    new webpack.optimize.OccurrenceOrderPlugin(),
+      template: 'src/example.html',
+      filename: 'docs/index.html'
+    }),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
-    }),
-    new WebpackErrorNotificationPlugin(),
+    })
+  ] : [
     new webpack.NoErrorsPlugin(),
     new WebpackHtmlWebpackPlugin({
-      template: 'example.html'
+      template: 'src/example.html'
     })
   ],
   resolve: {
@@ -68,3 +58,5 @@ module.exports = {
     extensions: ['', '.js', '.jsx', '.es6']
   }
 }
+
+module.exports = config
