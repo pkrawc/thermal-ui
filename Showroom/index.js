@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, cloneElement } from 'react'
 import styled from 'styled-components'
 import { colors } from 'variables'
 
@@ -14,14 +14,14 @@ const ShowroomList = styled(List)`
   background-color: #27AE60;
   color: #F9F9F9;
   height: 100vh;
-  max-width: 240px;
+  max-width: 180px;
   overflow-y: auto;
   text-align: right;
   width: 100%;
 `
 
 ShowroomList.Item = styled(List.Item)`
-  padding: 0 1em;
+  padding: 0;
 `
 
 const ShowroomMenu = ({groups}) =>
@@ -29,7 +29,7 @@ const ShowroomMenu = ({groups}) =>
     {Object.values(groups).map(
       (group, i) =>
         <ShowroomList.Item key={`menu-item-${i}`}>
-          <Subtitle>{group.groupTitle}</Subtitle>
+          <Subtitle style={{paddingRight:'0.75em'}}>{group.groupTitle}</Subtitle>
           <List>
             {group.items.map(
               (item, i) =>
@@ -42,42 +42,26 @@ const ShowroomMenu = ({groups}) =>
     )}
   </ShowroomList>
 
-const ShowroomStage = ({group}) =>
-  <Container padded>
-    <Title>{group.groupTitle}</Title>
-    {group.items.map(
-      (item, i) =>
-        <Container key={`item-${i}`}>
-          <Subtitle>{item.title}</Subtitle>
-          <Card>
-            <Container padded>
-              {item.examples.map(
-                (example, i) => example
-              )}
-            </Container>
-          </Card>
-          <Code code={item.example} />
-        </Container>
-    )}
-  </Container>
+const ShowroomStage = ({children, ...rest}) =>
+  <StageContainer flexColumn padded>
+    <Subtitle>{rest.title}</Subtitle>
+    <Container padded style={{flex: 1}}>
+      { children ? cloneElement(children, rest) : null }
+    </Container>
+    <Code code={'hello world'} style={{flex: 1}}/>
+  </StageContainer>
 
 const StageContainer = styled(Container)`
   height: 100vh;
   overflow-y: auto;
 `
 
-const Showroom = props =>
+const Showroom = ({children, ...rest}) =>
   <Container flex>
     <ShowroomMenu groups={exampleGroups} />
-    <StageContainer>
-      {Object.values(exampleGroups).map(
-        (group, i) =>
-          <ShowroomStage
-            key={`stage-${i}`}
-            group={group}
-          />
-      )}
-    </StageContainer>
+    <ShowroomStage>
+      { children ? cloneElement(children, rest) : null }
+    </ShowroomStage>
   </Container>
 
 export default Showroom

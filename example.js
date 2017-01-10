@@ -10,7 +10,9 @@ const Routing = (
     <Route path="/" component={Showroom}>
       {Object.values(examples).map(
         group => group.items.map(
-          item => <Route path={parameterize(item.title)} />
+          item => (
+            <Route path={parameterize(item.title)} component={item.example} />
+          )
         )
       )}
     </Route>

@@ -1,8 +1,11 @@
 import React from 'react'
 import { Menu } from '../Menu'
 
+const MenuExample = props =>
+  <Menu>
+    Hello world
+  </Menu>
+
 export default {
   title: 'Menu',
-  icon: 'menu',
-  example: <Menu>Hello world</Menu>
-}
+  example: MenuExample

@@ -8,7 +8,6 @@ export const List = styled.ul`
 `
 
 List.Item = styled.li`
-  padding: 0.5em 1em;
   margin-top: 0.5em;
   margin-bottom: 0.5em;
 `

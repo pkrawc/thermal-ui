@@ -24,9 +24,5 @@ class BottomBarExample extends Component {
 
 export default {
   title: 'Bottom Bar',
-  examples: [
-    (
-      <BottomBarExample />
-    )
-  ]
+  example: BottomBarExample
 }

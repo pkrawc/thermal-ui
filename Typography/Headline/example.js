@@ -1,11 +1,12 @@
 import React from 'react'
 import { Headline } from '../Headline'
 
+const HeadlineExample = props =>
+  <Headline>
+    Hello World
+  </Headline>
+
 export default {
   title: 'Headline',
-  examples: [(
-    <Headline>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-    </Headline>
-  )]
+  example: HeadlineExample
 }

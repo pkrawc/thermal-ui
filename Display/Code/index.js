@@ -6,7 +6,7 @@ const CodeWrapper = styled.code`
 `
 
 export const Code = ({children, ...rest}) =>
-  <pre>
+  <pre {...rest}>
     <CodeWrapper {...rest}>
       hello
     </CodeWrapper>
