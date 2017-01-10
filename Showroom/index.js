@@ -8,31 +8,46 @@ import { Link } from '../Navigation'
 import { Card, List, Code } from '../Display'
 
 import * as exampleGroups from './examples'
+import { parameterize } from '../Utils'
+
+const ShowroomList = styled(List)`
+  background-color: #27AE60;
+  color: #F9F9F9;
+  height: 100vh;
+  max-width: 240px;
+  overflow-y: auto;
+  text-align: right;
+  width: 100%;
+`
+
+ShowroomList.Item = styled(List.Item)`
+  padding: 0 1em;
+`
 
 const ShowroomMenu = ({groups}) =>
-  <List>
+  <ShowroomList>
     {Object.values(groups).map(
       (group, i) =>
-        <List.Item key={`menu-item-${i}`}>
+        <ShowroomList.Item key={`menu-item-${i}`}>
           <Subtitle>{group.groupTitle}</Subtitle>
           <List>
             {group.items.map(
               (item, i) =>
                 <List.Item key={`item-link-${i}`}>
-                  <Link>{item.title}</Link>
+                  <Link to={parameterize(item.title)}>{item.title}</Link>
                 </List.Item>
             )}
           </List>
-        </List.Item>
+        </ShowroomList.Item>
     )}
-  </List>
+  </ShowroomList>
 
 const ShowroomStage = ({group}) =>
-  <Container>
+  <Container padded>
     <Title>{group.groupTitle}</Title>
     {group.items.map(
       (item, i) =>
-        <Container key={`item-${i}`} padded>
+        <Container key={`item-${i}`}>
           <Subtitle>{item.title}</Subtitle>
           <Card>
             <Container padded>
@@ -46,10 +61,15 @@ const ShowroomStage = ({group}) =>
     )}
   </Container>
 
+const StageContainer = styled(Container)`
+  height: 100vh;
+  overflow-y: auto;
+`
+
 const Showroom = props =>
   <Container flex>
     <ShowroomMenu groups={exampleGroups} />
-    <Container>
+    <StageContainer>
       {Object.values(exampleGroups).map(
         (group, i) =>
           <ShowroomStage
@@ -57,7 +77,7 @@ const Showroom = props =>
             group={group}
           />
       )}
-    </Container>
+    </StageContainer>
   </Container>
 
 export default Showroom

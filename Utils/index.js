@@ -1,0 +1,1 @@
+export { parameterize } from './parameterize'
