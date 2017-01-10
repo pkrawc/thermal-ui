@@ -5,9 +5,6 @@ npm-debug.log
 *.eot
 *.woff2
 *.ttf
-example-build.js
-example-build.js.map
 index-build.js
 index-build.js.map
-index.html
 keys.md

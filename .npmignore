@@ -1,6 +1,10 @@
+docs
+Showroom
+
 example
 examples
-Showroom
+index.html
+
 karma.conf.js
 webpack.config.js
 webpack.config.test.js
@@ -9,5 +13,3 @@ tests
 *.eot
 *.woff2
 *.ttf
-example-build.js
-example-build.js.map

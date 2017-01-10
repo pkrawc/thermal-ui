@@ -2,7 +2,7 @@ const path = require('path')
 const webpack = require('webpack')
 const WebpackHtmlWebpackPlugin = require('html-webpack-plugin')
 const WebpackErrorNotificationPlugin = require('webpack-error-notification')
-const build = process.env.BUILD
+const site = process.env.SITE
 
 module.exports = {
   cache: true,
@@ -12,12 +12,17 @@ module.exports = {
     hot: true,
     noInfo: true
   },
-  entry: {
+  entry: site ? [
+    './example'
+  ] : {
     example: './example',
     index: './index'
   },
-  output: {
-    path: build ? './docs' : './',
+  output: site ? {
+    path: './docs',
+    filename: 'example.min.js'
+  } : {
+    path: './',
     filename: '[name]-build.js',
     chunkFilename: '[id].js',
     publicPath: '/',
@@ -34,7 +39,18 @@ module.exports = {
       }
     ]
   },
-  plugins: [
+  plugins: site ? [
+    new webpack.optimize.DedupePlugin(),
+    new webpack.optimize.OccurrenceOrderPlugin(),
+    new webpack.optimize.UglifyJsPlugin({
+      compress: {
+        warnings: false
+      }
+    }),
+    new WebpackHtmlWebpackPlugin({
+      template: 'example.html'
+    })
+  ] : [
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.DefinePlugin({
