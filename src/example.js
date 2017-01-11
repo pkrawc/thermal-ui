@@ -7,7 +7,7 @@ import { parameterize } from './Utils'
 
 const Routing = (
   <Router history={browserHistory}>
-    <Route path="/thermal-ui/" component={Showroom}>
+    <Route path="/" component={Showroom}>
       {Object.values(examples).map(
         group => group.items.map(
           item => (
