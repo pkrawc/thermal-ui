@@ -8,7 +8,7 @@
     "test": "jest",
     "test:update": "jest -u",
     "build": "webpack",
-    "build:site": "webpack",
+    "build:site": "SITE=true webpack",
     "prepublish": "npm run build"
   },
   "author": "Patrick Krawczykowski",

@@ -1,6 +1,7 @@
 const { join, resolve } = require('path')
 const webpack = require('webpack')
 const dev = process.env.NODE_ENV === 'development'
+const site = process.env.SITE
 
 const config = {
   cache: true,
@@ -35,7 +36,7 @@ const config = {
     'index' : resolve(__dirname, 'src/index.js')
   },
   output: {
-    path: dev ? join(__dirname, 'docs') : join(__dirname, 'build'),
+    path: site ? join(__dirname, 'docs') : join(__dirname, 'build'),
     filename: '[name]-build.js',
     chunkFilename: '[id].js',
     library: 'thermal-ui',
