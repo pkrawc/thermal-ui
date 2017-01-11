@@ -1,6 +1,8 @@
 node_modules
 build
 
+docs/index-build.js
+
 npm-debug.log
 .idea/
 *.woff
