@@ -4,10 +4,10 @@
   "description": "Thermal UI Components",
   "main": "build/index-build.js",
   "scripts": {
-    "start": "webpack-dev-server",
+    "start": "NODE_ENV=development webpack-dev-server",
     "test": "jest",
     "test:update": "jest -u",
-    "build": "NODE_ENV=production webpack",
+    "build": "webpack",
     "build:site": "webpack",
     "prepublish": "npm run build"
   },

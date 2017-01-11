@@ -1,10 +1,10 @@
 const { join, resolve } = require('path')
 const webpack = require('webpack')
-const prod = process.env.NODE_ENV === 'production'
+const dev = process.env.NODE_ENV === 'development'
 
 const config = {
   cache: true,
-  devtool: prod ? 'eval' : 'inline-source-map',
+  devtool: dev ? 'inline-source-map' : 'eval',
   devServer: {
     hot: true,
     inline: true,
@@ -35,7 +35,7 @@ const config = {
     'index' : resolve(__dirname, 'src/index.js')
   },
   output: {
-    path: prod ? join(__dirname, 'build') : join(__dirname, 'docs'),
+    path: dev ? join(__dirname, 'docs') : join(__dirname, 'build'),
     filename: '[name]-build.js',
     chunkFilename: '[id].js',
     library: 'thermal-ui',
@@ -47,7 +47,13 @@ const config = {
       { test: /\.(jsx?|es6)$/, loader: 'babel-loader', exclude: [/node_modules/] }
     ]
   },
-  plugins: prod ? [
+  plugins: dev ? [
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NamedModulesPlugin(),
+    new webpack.LoaderOptionsPlugin({
+      debug: true
+    })
+  ] : [
     new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.LoaderOptionsPlugin({
       minimize: true
@@ -58,12 +64,6 @@ const config = {
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
     })
-  ] : [
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.NamedModulesPlugin(),
-    new webpack.LoaderOptionsPlugin({
-       debug: true
-     })
   ],
   resolve: {
     modules: [
