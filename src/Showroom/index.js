@@ -1,6 +1,6 @@
 import React, { Component, cloneElement } from 'react'
 import styled from 'styled-components'
-import { colors } from 'variables'
+import { colors, media } from 'variables'
 
 import { Container, Row, Column } from '../Layout'
 import { Title, Subtitle } from '../Typography'
@@ -11,10 +11,10 @@ import * as exampleGroups from './examples'
 import { parameterize } from '../Utils'
 
 const ShowroomList = styled(List)`
-  background-color: #27AE60;
+  background-color: ${colors.primary};
   color: #F9F9F9;
   height: 100vh;
-  max-width: 180px;
+  max-width: ${media.xSmall};
   overflow-y: auto;
   text-align: right;
   width: 100%;
@@ -44,11 +44,10 @@ const ShowroomMenu = ({groups}) =>
 
 const ShowroomStage = ({children, ...rest}) =>
   <StageContainer flexColumn padded>
-    <Subtitle>{rest.title}</Subtitle>
-    <Container padded style={{flex: 1}}>
+    <Container style={{flex: 1, paddingBottom: '1em'}}>
       { children ? cloneElement(children, rest) : null }
     </Container>
-    <Code code={'hello world'} style={{flex: 1}}/>
+    <Code element={children} style={{flex: 1}}/>
   </StageContainer>
 
 const StageContainer = styled(Container)`
@@ -60,7 +59,7 @@ const Showroom = ({children, ...rest}) =>
   <Container flex>
     <ShowroomMenu groups={exampleGroups} />
     <ShowroomStage>
-      { children ? cloneElement(children, rest) : null }
+      { children ? cloneElement(children, ...rest) : null }
     </ShowroomStage>
   </Container>
 

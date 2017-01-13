@@ -3923,9 +3923,9 @@ react-dom@^15.4.1:
     loose-envify "^1.1.0"
     object-assign "^4.1.0"
 
-react-element-to-jsx-string@^5.0.6:
-  version "5.0.6"
-  resolved "https://registry.yarnpkg.com/react-element-to-jsx-string/-/react-element-to-jsx-string-5.0.6.tgz#161adfde6e35c56a1ad1c271039aceec924dc67c"
+react-element-to-jsx-string@^6.0.0:
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/react-element-to-jsx-string/-/react-element-to-jsx-string-6.0.0.tgz#f2c151476ee8dd817891ed352be4ace9fb3631c2"
   dependencies:
     collapse-white-space "^1.0.0"
     is-plain-object "^2.0.1"

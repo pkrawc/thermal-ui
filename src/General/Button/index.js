@@ -6,13 +6,13 @@ export const Button = styled.button`
   background-color: ${({primary, color}) => {
       if (primary) {
         if (color) return color
-        else return colors.dark
+        else return colors.darkSecondary
       } else {
         return colors.light
       }
     }
   };
-  border: 2px solid ${({color}) => color ? color : colors.dark};
+  border: 2px solid ${({color}) => color ? color : colors.darkSecondary};
   border-radius: 2px;
   box-shadow: none;
   color: ${
@@ -20,7 +20,7 @@ export const Button = styled.button`
       if (primary) return colors.light
       else {
         if (color) return color
-        else return colors.dark
+        else return colors.darkSecondary
       }
     }
   };
@@ -31,8 +31,10 @@ export const Button = styled.button`
   outline: none;
   text-align: center;
   text-transform: uppercase;
+  text-overflow: ellipsis;
   transition: all 150ms ease-in-out;
   white-space: nowrap;
+  overflow: hidden;
   &:hover {
     background-color: ${
       ({primary, color}) => {
@@ -40,7 +42,7 @@ export const Button = styled.button`
           return colors.light
         } else {
           if (color) return color
-          else return colors.dark
+          else return colors.darkSecondary
         }
       }
     };
@@ -49,7 +51,7 @@ export const Button = styled.button`
       ({primary, color}) => {
         if (primary) {
           if (color) return color
-          else return colors.dark
+          else return colors.darkSecondary
         }
         else return colors.light
       }

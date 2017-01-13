@@ -1,4 +1,4 @@
-const { join, resolve } = require('path')
+const { resolve } = require('path')
 const webpack = require('webpack')
 const dev = process.env.NODE_ENV === 'development'
 const site = process.env.SITE
@@ -16,12 +16,12 @@ const config = {
     noInfo: false,
     stats: {
       colors: true,
-      hash: false,
+      hash: true,
       version: false,
-      timings: false,
+      timings: true,
       assets: false,
       chunks: false,
-      modules: true,
+      modules: false,
       reasons: false,
       children: false,
       source: false,
@@ -32,11 +32,11 @@ const config = {
     }
   },
   entry: {
-    'example' : [resolve(__dirname, 'src/example.js')],
+    'example' : resolve(__dirname, 'src/example.js'),
     'index' : resolve(__dirname, 'src/index.js')
   },
   output: {
-    path: site ? join(__dirname, 'docs') : join(__dirname, 'build'),
+    path: site ? resolve(__dirname, 'docs') : resolve(__dirname, 'build'),
     filename: '[name]-build.js',
     chunkFilename: '[id].js',
     library: 'thermal-ui',
@@ -68,7 +68,7 @@ const config = {
   ],
   resolve: {
     modules: [
-      join(__dirname, 'src'),
+      resolve(__dirname, 'src'),
       'node_modules'
     ],
     extensions: ['.js', '.jsx', '.es6']
