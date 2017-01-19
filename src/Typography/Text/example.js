@@ -12,7 +12,7 @@ const TextExample = props =>
       actions={[
         {
           action: e => { console.log('some action') },
-          text: 'some action'
+          text: 'so'
         },
         {
           action: e => { console.log('some other action') },

@@ -1,45 +1,47 @@
-import React from 'react'
+import React, { PropTypes } from 'react'
 import styled from 'styled-components'
+import { Motion, spring } from 'react-motion'
 import { colors, shadows } from 'variables'
 
-const BottomBarOverlay = styled.div`
+
+const BottomBarWrapper = styled.div`
   position: fixed;
-  display: ${
-    ({active}) => {
-      if (active) {
-        document.body.classList.add('no-scroll')
-        return 'block'
-      } else {
-        document.body.classList.remove('no-scroll')
-        return 'none'
-      }
-    }
-  };
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: ${colors.disabled};
-  z-index: 998;
+  top: 0; right: 0; bottom: 0; left: 0;
+  visibility: ${({active}) => active ? 'initial' : 'hidden'};
+  pointer-events: ${({active}) => active ? 'initial' : 'none'};
+  background-color: ${colors.disabled};
+  transition: visibility 150ms ease-in-out;
 `
 
-const BottomBarInner = styled.div`
+const Bar = styled.div`
+  margin: 0.5em;
+  padding: 1em;
   position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 1rem;
+  right: 0; bottom: 0; left: 0;
   background-color: ${colors.light};
-  box-shadow: ${({active}) => active ? shadows.bottom : 'none'};
-  min-height: 2.5rem;
-  transition: transform 150ms ease-in-out;
-  transform: ${({active}) => active ? 'translateY(0)' : 'translateY(100%)'};
+  border-radius: 2px;
+  box-shadow: ${shadows.small};
+  font-size: 1em;
+  min-height: 2.5em;
+  opacity: ${({active}) => active ? 1 : 0};
+  transform: ${({y}) => `translateY(${y}%)`};
+  transition: opacity 150ms ease-in-out;
   z-index: 999;
 `
 
-export const BottomBar = ({children, ...rest}) =>
-  <BottomBarOverlay {...rest}>
-    <BottomBarInner {...rest}>
-      {children}
-    </BottomBarInner>
-  </BottomBarOverlay>
+export const BottomBar = props =>
+  <BottomBarWrapper {...props} onClick={props.toggle}>
+    <Motion style={{y: spring(props.active ? 0 : 100, {stiffness: 250, damping: 30})}}>
+      {
+        ({y}) =>
+          <Bar y={y} {...props} onClick={(e) => {e.stopPropagation()}}>
+            {props.children}
+          </Bar>
+      }
+    </Motion>
+  </BottomBarWrapper>
+
+BottomBar.propTypes = {
+  active: PropTypes.bool.isRequired,
+  toggle: PropTypes.func.isRequired
+}

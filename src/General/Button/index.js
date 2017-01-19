@@ -8,7 +8,7 @@ export const Button = styled.button`
         if (color) return color
         else return colors.darkSecondary
       } else {
-        return colors.light
+        return 'transparent'
       }
     }
   };

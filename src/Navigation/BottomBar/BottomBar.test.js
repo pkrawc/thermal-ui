@@ -4,7 +4,7 @@ import { BottomBar } from '../BottomBar'
 
 it('renders bottom bar correctly', () => {
   const tree = renderer.create(
-    <BottomBar>
+    <BottomBar active={false} toggle={() => true}>
       Hello World
     </BottomBar>
   ).toJSON()

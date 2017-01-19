@@ -4,7 +4,6 @@ import { asCode } from '../../Utils'
 import { colors } from 'variables'
 
 const Pre = styled.pre`
-  position: relative;
   padding: 1em;
   margin: 0;
   background-color: ${colors.dark};

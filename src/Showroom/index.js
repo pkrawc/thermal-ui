@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { colors, media } from 'variables'
 
 import { Container, Row, Column } from '../Layout'
-import { Title, Subtitle } from '../Typography'
+import { Hero, Title, Subtitle } from '../Typography'
 import { Link } from '../Navigation'
 import { Card, List, Code } from '../Display'
 
@@ -12,7 +12,7 @@ import { parameterize } from '../Utils'
 
 const ShowroomList = styled(List)`
   background-color: ${colors.primary};
-  color: #F9F9F9;
+  color: ${colors.light};
   height: 100vh;
   max-width: ${media.xSmall};
   overflow-y: auto;
@@ -47,7 +47,7 @@ const ShowroomStage = ({children, ...rest}) =>
     <Container style={{flex: 1, paddingBottom: '1em'}}>
       { children ? cloneElement(children, rest) : null }
     </Container>
-    <Code element={children} style={{flex: 1}}/>
+    <Code element={children.children} style={{flex: 1}}/>
   </StageContainer>
 
 const StageContainer = styled(Container)`
@@ -55,11 +55,29 @@ const StageContainer = styled(Container)`
   overflow-y: auto;
 `
 
+const Intro = props =>
+  <Container>
+    <Row>
+      <Column smCol={12}>
+        <Hero>
+          Thermal UI Components
+        </Hero>
+        <Title>
+          A library of UI components with sane defaults. Extendable with styled-components.
+        </Title>
+      </Column>
+    </Row>
+  </Container>
+
 const Showroom = ({children, ...rest}) =>
   <Container flex>
     <ShowroomMenu groups={exampleGroups} />
     <ShowroomStage>
-      { children ? cloneElement(children, ...rest) : null }
+      {
+        children ?
+        cloneElement(children, ...rest) :
+        <Intro />
+      }
     </ShowroomStage>
   </Container>
 

@@ -12,25 +12,25 @@ const opts = {
   useBooleanShorthandSyntax: true
 }
 
-const reFormatFunctionProp = (code) =>
+const reFormatFunctionProp = code =>
   code.replace(
     /function ([a-zA-Z0-9]+)\((.*?)\) {\s*return ([\s\S]+?);\s*}}/g,
     '($2) => $3}'
   )
 
-const stripUndefinedProps = (code) =>
+const stripUndefinedProps = code =>
   code.replace(/[a-zA-Z0-9]+={undefined}/g, '')
 
-const stripEmptyLines = (code) =>
+const stripEmptyLines = code =>
   code
     .split('\n')
     .filter((line) => line.trim() !== '')
     .join('\n')
 
-const toSingleQuote = (code) =>
+const toSingleQuote = code =>
   code.replace(/"/g, "'")
 
-const getIndentation = (string) =>
+const getIndentation = string =>
   string
     .split('')
     .reduce((result, char) =>
@@ -44,7 +44,7 @@ const getIndentation = (string) =>
       , { count: 0, skip: false }
     ).count
 
-const reFormatObjectProps = (code) =>
+const reFormatObjectProps = code =>
   code
     .split('\n')
     .map((line) => {
@@ -121,7 +121,7 @@ const postProcessing = compose(
   toSingleQuote
 )
 
-export const asCode = (children) =>
+export const asCode = children =>
   postProcessing(
     map(flip(asString)(opts), Children.toArray(children)).join('\n')
   )

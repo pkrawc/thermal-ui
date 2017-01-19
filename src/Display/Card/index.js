@@ -11,9 +11,14 @@ const CardWrapper = styled.div`
   padding: 0 1em 1em;
   .action-area {
     display: flex;
+    flex-wrap: wrap;
     flex-direction: row-reverse;
+    margin-bottom: -1em;
     button:not(:last-of-type) {
       margin-left: 1em;
+    }
+    button {
+      margin-bottom: 1em;
     }
   }
   .media {
@@ -54,7 +59,7 @@ export const Card = ({
     <div className="action-area">
       {
         actions ? Array.isArray(actions) ?
-        actions.map(action => <Button onClick={action.action}>{action.text}</Button>) :
+        actions.map((action, i)=> <Button key={`card-${i}`} onClick={action.action}>{action.text}</Button>) :
         <Button onClick={actions.action}>{actions.text}</Button> :
         null
       }

@@ -7,8 +7,7 @@ class BottomBarExample extends Component {
   constructor(props) {
     super(props)
     this.state = { bbActive: false }
-    this.toggleState = (e) => {
-      e.preventDefault
+    this.toggleState = _ => {
       this.setState({bbActive: !this.state.bbActive})
     }
   }
@@ -16,7 +15,9 @@ class BottomBarExample extends Component {
     return (
       <Container>
         <Button onClick={this.toggleState}>Click to toggle bottom bar</Button>
-        <BottomBar active={this.state.bbActive}>Hello Bottom Bar</BottomBar>
+        <BottomBar active={this.state.bbActive} toggle={this.toggleState}>
+          <Button onClick={() => {console.log('hello bottom button')}}>Hello Bottom Bar Button</Button>
+        </BottomBar>
       </Container>
     )
   }
