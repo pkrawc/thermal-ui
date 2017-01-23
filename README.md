@@ -25,7 +25,7 @@ npm install react styled-components thermal-ui
   + [Button](#button)
   + [Icon](#icon)
 + Navigation
-  + BottomBar
+  + [BottomBar](#bottombar)
   + Breadcrumb
   + Dropdown
   + Menu

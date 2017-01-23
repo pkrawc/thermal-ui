@@ -1,14 +1,17 @@
+// vendor imports
 import React, { Component, cloneElement } from 'react'
 import styled from 'styled-components'
 import { colors, media } from 'variables'
 
+// local components and utilities
 import { Container, Row, Column } from '../Layout'
 import { Hero, Title, Subtitle } from '../Typography'
 import { Link } from '../Navigation'
 import { Card, List, Code } from '../Display'
-
-import * as exampleGroups from './examples'
 import { parameterize } from '../Utils'
+
+// examples
+import * as exampleGroups from './examples'
 
 const ShowroomList = styled(List)`
   background-color: ${colors.primary};
