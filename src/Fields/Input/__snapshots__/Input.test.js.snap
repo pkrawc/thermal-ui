@@ -1,0 +1,15 @@
+exports[`Input It renders without crashing 1`] = `
+<div
+  className="bvTvgI"
+  label="input label">
+  <input
+    id="1"
+    placeholder={undefined}
+    type="text"
+    value={undefined} />
+  <label
+    htmlFor={undefined}>
+    input label
+  </label>
+</div>
+`;

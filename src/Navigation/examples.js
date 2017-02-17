@@ -1,8 +1,10 @@
-import { default as BottomBar } from './BottomBar/example'
+import BottomBar from './BottomBar/example'
+import Breadcrumb from './Breadcrumb/example'
 
 export default {
   groupTitle: 'Navigation',
   items: [
-    BottomBar
+    BottomBar,
+    Breadcrumb
   ]
 }

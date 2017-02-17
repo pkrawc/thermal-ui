@@ -1,23 +1,26 @@
+// vendor imports
 import React, { Component, cloneElement } from 'react'
 import styled from 'styled-components'
 import { colors, media } from 'variables'
 
+// local components and utilities
 import { Container, Row, Column } from '../Layout'
 import { Hero, Title, Subtitle } from '../Typography'
 import { Link } from '../Navigation'
 import { Card, List, Code } from '../Display'
-
-import * as exampleGroups from './examples'
 import { parameterize } from '../Utils'
+
+// examples
+import * as exampleGroups from './examples'
 
 const ShowroomList = styled(List)`
   background-color: ${colors.primary};
   color: ${colors.light};
-  height: 100vh;
   max-width: ${media.xSmall};
   overflow-y: auto;
   text-align: right;
   width: 100%;
+  height: 100vh;
 `
 
 ShowroomList.Item = styled(List.Item)`
@@ -26,6 +29,7 @@ ShowroomList.Item = styled(List.Item)`
 
 const ShowroomMenu = ({groups}) =>
   <ShowroomList>
+    <Title style={{paddingRight: '1rem'}}>Thermal UI</Title>
     {Object.values(groups).map(
       (group, i) =>
         <ShowroomList.Item key={`menu-item-${i}`}>
@@ -42,18 +46,18 @@ const ShowroomMenu = ({groups}) =>
     )}
   </ShowroomList>
 
-const ShowroomStage = ({children, ...rest}) =>
-  <StageContainer flexColumn padded>
-    <Container style={{flex: 1, paddingBottom: '1em'}}>
-      { children ? cloneElement(children, rest) : null }
-    </Container>
-    <Code element={children.children} style={{flex: 1}}/>
-  </StageContainer>
-
 const StageContainer = styled(Container)`
-  height: 100vh;
+  min-height: 100vh;
   overflow-y: auto;
 `
+
+const ShowroomStage = ({children, ...rest}) =>
+  <StageContainer flexColumn padded>
+    <Container style={{minHeight: '50vh', paddingBottom: '1em'}}>
+      { children ? cloneElement(children, rest) : null }
+    </Container>
+    <Code element={children} style={{flex: 1, minHeight: '10rem'}}/>
+  </StageContainer>
 
 const Intro = props =>
   <Container>

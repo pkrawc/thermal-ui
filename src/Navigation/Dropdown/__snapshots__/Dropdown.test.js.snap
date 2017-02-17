@@ -1,0 +1,10 @@
+exports[`Dropdown renders without crashing 1`] = `
+<div
+  className="hhUKrm"
+  onClick={[Function]}>
+  <p
+    onClick={[Function]}>
+    child
+  </p>
+</div>
+`;

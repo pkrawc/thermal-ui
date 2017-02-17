@@ -1,12 +1,12 @@
 export const colors = {
-  primary: '#137DB2',
-  accent: '#19FFFF',
-  dark: '#001119',
-  darkSecondary: 'rgba(0,17,25,0.6)',
-  light: '#F2FBFF',
-  lightSecondary: 'rgba(242,251,255,0.6)',
-  disabled: 'rgba(0,17,25,0.12)',
-  error: '#FF2D55',
+  primary: '#F44336',
+  accent: '#69F0AE',
+  dark: '#404040',
+  darkSecondary: 'rgba(64,64,64,0.6)',
+  light: '#F8F8F8',
+  lightSecondary: 'rgba(248,248,248,0.6)',
+  disabled: 'rgba(64,64,64,0.12)',
+  error: '#F44336',
 }
 
 export const shadows = {

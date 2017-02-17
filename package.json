@@ -30,6 +30,7 @@
     "react-element-to-jsx-string": "^6.0.0",
     "react-motion": "^0.4.7",
     "react-router": "^3.0.0",
+    "react-router-dom": "next",
     "react-syntax-highlighter": "^4.0.1",
     "react-test-renderer": "^15.4.1",
     "stringify-object": "^3.1.0",
@@ -40,6 +41,7 @@
   },
   "peerDependencies": {
     "react": "^15.4.1",
+    "react-router-dom": "next",
     "styled-components": "^1.2.1"
   }
 }
