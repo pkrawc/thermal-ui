@@ -1,13 +1,9 @@
 exports[`Breadcrumb renders the Breadcrumb without crashing 1`] = `
 <ul
   className="hzgMIJ">
-  <li
-    className="crumb">
+  <span>
     /
-    <a
-      href="blank">
-      blank
-    </a>
-  </li>
+    blank
+  </span>
 </ul>
 `;
