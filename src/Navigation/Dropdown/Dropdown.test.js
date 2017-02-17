@@ -23,10 +23,6 @@ describe('Dropdown', () => {
   })
 
   test('fires child onClick when child is clicked', () => {
-    const clicked = tree.children[0].props.onClick()
-    const output = 'it really works'
-
-    expect(clicked).toEqual(output)
-  })
+    g
 
 })
