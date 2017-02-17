@@ -1,6 +1,6 @@
 {
   "name": "thermal-ui",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "description": "Thermal UI Components",
   "main": "build/index-build.js",
   "scripts": {
