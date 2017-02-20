@@ -33,38 +33,41 @@ const CardWrapper = styled.div`
   }
 `
 
-export const Card = ({
+export function Card({
   actions,
   children,
   title,
   media,
   mediaBackground
-}) =>
-  <CardWrapper title={title}>
-    { title ? <Title color={colors.darkSecondary}>{title}</Title> : null }
-    <div className="media">
-      {
-        media.type === 'video' ? (
-          <video src={media.url}>
-            <p>
-              Your browser doesn't support HTML5 video, get a better browser.
-            </p>
-          </video>
-        ) : (
-          <img src={media.url} alt={title}/>
-        )
-      }
-    </div>
-    { children }
-    <div className="action-area">
-      {
-        actions ? Array.isArray(actions) ?
-        actions.map((action, i)=> <Button key={`card-${i}`} onClick={action.action}>{action.text}</Button>) :
-        <Button onClick={actions.action}>{actions.text}</Button> :
-        null
-      }
-    </div>
-  </CardWrapper>
+}) {
+  return (
+    <CardWrapper title={title}>
+      { title ? <Title color={colors.darkSecondary}>{title}</Title> : null }
+      <div className="media">
+        {
+          media.type === 'video' ? (
+            <video src={media.url}>
+              <p>
+                Your browser doesn't support HTML5 video, get a better browser.
+              </p>
+            </video>
+          ) : (
+            <img src={media.url} alt={title}/>
+          )
+        }
+      </div>
+      { children }
+      <div className="action-area">
+        {
+          actions ? Array.isArray(actions) ?
+          actions.map((action, i)=> <Button key={`card-${i}`} onClick={action.action}>{action.text}</Button>) :
+          <Button onClick={actions.action}>{actions.text}</Button> :
+          null
+        }
+      </div>
+    </CardWrapper>
+  )
+}
 
 Card.propTypes = {
   actions: PropTypes.oneOfType([
