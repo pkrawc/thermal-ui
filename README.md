@@ -27,7 +27,7 @@ npm install react styled-components thermal-ui
 + Navigation
   + [BottomBar](#bottombar)
   + [Breadcrumb](#breadcrumb)
-  + [Dropdown]
+  + [Dropdown](#dropdown)
   + Menu
   + Tabs
   + TopBar
@@ -45,7 +45,7 @@ npm install react styled-components thermal-ui
   + Upload
 + Display
   + Badge
-  + Card
+  + [Card](#card)
   + Carousel
   + Calendar
   + Code
