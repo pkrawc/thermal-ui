@@ -125,6 +125,59 @@ A set of wrappers to create consistent and styled text, no matter the screen
 
 ## General
 
+### Button
+```javascript
+<Button primary color="#FFF">button text</Button>
+```
+
+### Icon
+```javascript
+<Icon />
+```
+
+## Navigation
+
+### BottomBar
+```javascript
+<BottomBar>
+  Something in the bottom bar <Button>button too</Button>
+</BottomBar>
+```
+### Breadcrumb
+```javascript
+<Breadcrumb />
+```
+
+### Dropdown
+```javascript
+<Button>
+  <Dropdown />
+</Button>
+
+<Icon>
+  <Dropdown />
+</Icon>
+```
+
+## Fields
+```javascript
+<Input type="string:default" />
+```
+
+## Display
+
+### Card
+```javascript
+<Card title="some string">
+  something in the card
+  <CardActions actions={{'some action': function() { /* something */}}}/>
+</Card>
+```
+
+## Feedback
+
+
+
 
 ## Contributing
 1. Make sure your contribution is aligned with the Style Guide

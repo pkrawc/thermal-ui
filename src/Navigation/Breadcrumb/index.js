@@ -15,7 +15,7 @@ export const Breadcrumb = props => (
   <Route children={({match}) => (
     <BreadcrumbWrapper {...props}>
       { match.url.split('/').map((path, i) => (
-        <span key={`path-portion-${i}`}>/{path}</span>
+        <span key={`path-portion-${i}`}>{path}/</span>
       ))}
     </BreadcrumbWrapper>
   )}/>

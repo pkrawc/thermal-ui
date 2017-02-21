@@ -9,7 +9,7 @@ const CardWrapper = styled.div`
   border-radius: 4px;
   box-shadow: ${shadows.medium};
   padding: 0 1em 1em;
-  .action-area {
+  .card-actions {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row-reverse;
@@ -21,60 +21,44 @@ const CardWrapper = styled.div`
       margin-bottom: 1em;
     }
   }
-  .media {
-    position: relative;
-    transform: translateX(-1em);
-    width: calc(100% + 2em);
-    img {
-      display: block;
-      width: 100%;
-      border-radius: ${({title}) => title ? '0' : '4px 4px 0 0'};
-    }
-  }
 `
 
 export function Card({
-  actions,
   children,
   title,
-  media,
-  mediaBackground
+  ...props
 }) {
   return (
-    <CardWrapper title={title}>
+    <CardWrapper {...props}>
       { title ? <Title color={colors.darkSecondary}>{title}</Title> : null }
-      <div className="media">
-        {
-          media.type === 'video' ? (
-            <video src={media.url}>
-              <p>
-                Your browser doesn't support HTML5 video, get a better browser.
-              </p>
-            </video>
-          ) : (
-            <img src={media.url} alt={title}/>
-          )
-        }
-      </div>
-      { children }
-      <div className="action-area">
-        {
-          actions ? Array.isArray(actions) ?
-          actions.map((action, i)=> <Button key={`card-${i}`} onClick={action.action}>{action.text}</Button>) :
-          <Button onClick={actions.action}>{actions.text}</Button> :
-          null
-        }
-      </div>
+      {children}
     </CardWrapper>
   )
 }
 
 Card.propTypes = {
-  actions: PropTypes.oneOfType([
-    PropTypes.object,
-    PropTypes.array
-  ]),
-  title: PropTypes.string,
-  media: PropTypes.object,
-  mediaBackground: PropTypes.bool
+  title: PropTypes.string
+}
+
+export function CardActions({
+  actions
+}) {
+  return (
+    <div className="card-actions">
+      {
+        Object.keys(actions).map((action, i) => (
+          <Button
+            key={`card-action-${i}`}
+            className="action"
+            onClick={actions[action].bind(this)}>
+            {action}
+          </Button>
+        ))
+      }
+    </div>
+  )
+}
+
+CardActions.propTypes = {
+  actions: PropTypes.objectOf(PropTypes.func)
 }

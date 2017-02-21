@@ -2,8 +2,8 @@ exports[`Breadcrumb renders the Breadcrumb without crashing 1`] = `
 <ul
   className="hzgMIJ">
   <span>
-    /
     blank
+    /
   </span>
 </ul>
 `;
