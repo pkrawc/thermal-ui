@@ -6,7 +6,7 @@
 
 ## Usage
 ```bash
-npm install react styled-components thermal-ui
+npm install react styled-components react-router-dom@next thermal-ui
 ```
 
 
