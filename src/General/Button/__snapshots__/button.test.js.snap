@@ -1,6 +1,9 @@
 exports[`Button renders a Button without crashing 1`] = `
-<button
-  className="fYuIQd">
-  Hello World
-</button>
+<span
+  className="dGnXLd">
+  <button
+    onClick={undefined}>
+    Hello World
+  </button>
+</span>
 `;
