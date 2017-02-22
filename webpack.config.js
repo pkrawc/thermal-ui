@@ -35,6 +35,12 @@ const config = {
     'example' : resolve(__dirname, 'src/example.js'),
     'index' : resolve(__dirname, 'src/index.js')
   },
+  externals: dev ? {} : {
+    'react': 'react',
+    'react-dom': 'react-dom',
+    'react-router-dom': 'react-router-dom',
+    'styled-components': 'styled-components'
+  },
   output: {
     path: site ? resolve(__dirname, 'docs') : resolve(__dirname, 'build'),
     filename: '[name]-build.js',
@@ -49,21 +55,20 @@ const config = {
     ]
   },
   plugins: dev ? [
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
+    }),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NamedModulesPlugin(),
     new webpack.LoaderOptionsPlugin({
       debug: true
     })
   ] : [
-    new webpack.optimize.OccurrenceOrderPlugin(),
-    new webpack.LoaderOptionsPlugin({
-      minimize: true
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
     }),
     new webpack.optimize.UglifyJsPlugin({
       compress: { warnings: false }
-    }),
-    new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
     })
   ],
   resolve: {

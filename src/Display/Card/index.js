@@ -5,9 +5,9 @@ import { Title } from '../../Typography'
 import { Button } from '../../General'
 
 const CardWrapper = styled.div`
-  background-color: ${colors.light};
+  background-color: ${({theme}) => theme.colors ? theme.colors.light : colors.light};
   border-radius: 4px;
-  box-shadow: ${shadows.medium};
+  box-shadow: ${({theme}) => theme.shadows ? theme.shadows.medium : shadows.medium};
   padding: 0 1em 1em;
   .card-actions {
     display: flex;

@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import { Motion, spring } from 'react-motion'
 import { colors, shadows } from 'variables'
 
-
 const BottomBarWrapper = styled.div`
   position: fixed;
   top: 0; right: 0; bottom: 0; left: 0;
@@ -29,17 +28,25 @@ const Bar = styled.div`
   z-index: 999;
 `
 
-export const BottomBar = props =>
-  <BottomBarWrapper {...props} onClick={props.toggle}>
-    <Motion style={{y: spring(props.active ? 0 : 100, {stiffness: 250, damping: 30})}}>
-      {
-        ({y}) =>
-          <Bar y={y} {...props} onClick={(e) => {e.stopPropagation()}}>
-            {props.children}
-          </Bar>
-      }
-    </Motion>
-  </BottomBarWrapper>
+export function BottomBar({
+  children,
+  toggle,
+  active
+}) {
+  return (
+    <BottomBarWrapper active={active} onClick={toggle}>
+      <Motion style={{y: spring(active ? 0 : 100, {stiffness: 250, damping: 30})}}>
+        {({y}) =>
+          <Bar
+            active={active}
+            y={y}
+            onClick={(e) => {e.stopPropagation()}}>
+            {children}
+          </Bar>}
+      </Motion>
+    </BottomBarWrapper>
+  )
+}
 
 BottomBar.propTypes = {
   active: PropTypes.bool.isRequired,

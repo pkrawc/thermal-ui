@@ -3,7 +3,7 @@ import { Button } from '../Button'
 import { colors } from 'variables'
 
 const ButtonExample = props =>
-  <Button>
+  <Button primary color={colors.primary} onClick={() => { console.log('button click')}}>
     Hello Button
   </Button>
 
