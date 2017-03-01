@@ -6,5 +6,4 @@ export const Container = styled.div`
   flex-direction: ${({flexColumn}) => flexColumn ? 'column' : 'initial'};
   padding: ${({padded}) => padded ? '1rem' : 'initial'};
   min-height: ${({flex, flexColumn}) => flex || flexColumn ? '100vh' : 'initial'};
-  width: 100%;
 `

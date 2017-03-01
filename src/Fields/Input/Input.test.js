@@ -3,11 +3,14 @@ import renderer from 'react-test-renderer'
 import { Input } from '../Input'
 
 describe('Input', () => {
-  const tree = renderer.create(
-    <Input id={`1`} label="input label" type="text" />
-  ).toJSON()
+  const props = {
+    id: '1',
+    label: 'input label',
+    type: 'text'
+  }
+  const tree = renderer.create(<Input {...props} />).toJSON()
 
-  test('It renders without crashing', () => {
+  it('renders without crashing', () => {
     expect(tree).toMatchSnapshot()
   })
 })

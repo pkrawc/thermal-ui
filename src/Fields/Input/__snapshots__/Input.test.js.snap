@@ -1,4 +1,4 @@
-exports[`Input It renders without crashing 1`] = `
+exports[`Input renders without crashing 1`] = `
 <div
   className="bvTvgI"
   label="input label">

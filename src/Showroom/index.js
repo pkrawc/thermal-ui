@@ -1,88 +1,112 @@
 // vendor imports
-import React, { Component, cloneElement } from 'react'
+import React from 'react'
+import {
+  BrowserRouter as Router,
+  Route,
+  Link
+} from 'react-router-dom'
 import styled from 'styled-components'
 import { colors, media } from 'variables'
 
 // local components and utilities
-import { Container, Row, Column } from '../Layout'
-import { Hero, Title, Subtitle } from '../Typography'
-import { Link } from '../Navigation'
-import { Card, List, Code } from '../Display'
-import { parameterize } from '../Utils'
+import { Container } from '../Layout'
+import { Subtitle } from '../Typography'
+import { List } from '../Display'
+import { parameterize, asCode } from '../Utils'
 
 // examples
 import * as exampleGroups from './examples'
 
-const ShowroomList = styled(List)`
-  background-color: ${colors.primary};
-  color: ${colors.light};
-  max-width: ${media.xSmall};
-  overflow-y: auto;
-  text-align: right;
-  width: 100%;
-  height: 100vh;
-`
 
-ShowroomList.Item = styled(List.Item)`
-  padding: 0;
-`
-
-const ShowroomMenu = ({groups}) =>
-  <ShowroomList>
-    <Title style={{paddingRight: '1rem'}}>Thermal UI</Title>
-    {Object.values(groups).map(
-      (group, i) =>
-        <ShowroomList.Item key={`menu-item-${i}`}>
-          <Subtitle style={{paddingRight:'0.75em'}}>{group.groupTitle}</Subtitle>
-          <List>
-            {group.items.map(
-              (item, i) =>
-                <List.Item key={`item-link-${i}`}>
-                  <Link to={parameterize(item.title)}>{item.title}</Link>
-                </List.Item>
-            )}
-          </List>
-        </ShowroomList.Item>
-    )}
-  </ShowroomList>
-
-const StageContainer = styled(Container)`
+const ShowroomWrapper = styled(Container)`
   min-height: 100vh;
   overflow-y: auto;
+  .showroom__list {
+    position: fixed;
+    top: 0; bottom: 0; left: 0;
+    background-color: ${colors.primary};
+    color: ${colors.light};
+    max-width: ${media.xSmall};
+    overflow-y: auto;
+    text-align: right;
+    width: calc(100% - 2em);
+    height: 100vh;
+    li {
+      padding: 0;
+    }
+  }
+  .showroom__stage {
+    margin-left: ${media.xSmall};
+  }
 `
 
-const ShowroomStage = ({children, ...rest}) =>
-  <StageContainer flexColumn padded>
-    <Container style={{minHeight: '50vh', paddingBottom: '1em'}}>
-      { children ? cloneElement(children, rest) : null }
-    </Container>
-    <Code element={children} style={{flex: 1, minHeight: '10rem'}}/>
-  </StageContainer>
-
-const Intro = props =>
-  <Container>
-    <Row>
-      <Column smCol={12}>
-        <Hero>
-          Thermal UI Components
-        </Hero>
-        <Title>
-          A library of UI components with sane defaults. Extendable with styled-components.
-        </Title>
-      </Column>
-    </Row>
-  </Container>
-
-const Showroom = ({children, ...rest}) =>
-  <Container flex>
-    <ShowroomMenu groups={exampleGroups} />
-    <ShowroomStage>
+function ShowroomList({exampleGroups}) {
+  return (
+    <Container className="showroom__list">
       {
-        children ?
-        cloneElement(children, ...rest) :
-        <Intro />
+        Object.values(exampleGroups).map((group, i) => (
+          <List key={`group-${i}`}>
+            <li>
+              <Subtitle>{group.groupTitle}</Subtitle>
+            </li>
+            <li>
+              <List>
+                {
+                  group.items.map((item, i) => (
+                    <li key={`item-${i}`}>
+                      <Link to={`${parameterize(item.title)}`}>{item.title}</Link>
+                    </li>
+                  ))
+                }
+              </List>
+            </li>
+          </List>
+        ))
       }
-    </ShowroomStage>
-  </Container>
+    </Container>
+  )
+}
+
+function ShowroomStage({exampleGroups}) {
+  return (
+    <Container className="showroom__stage" padded flexColumn>
+      <Container className="component">
+        {
+          Object.values(exampleGroups).map(group => (
+            group.items.map((item, i) => (
+              <Route path={`/${parameterize(item.title)}`} component={item.example}/>
+            ))
+          ))
+        }
+      </Container>
+      <Container className="code">
+        {
+          Object.values(exampleGroups).map(group => (
+            group.items.map((item, i) => (
+              <Route path={`/${parameterize(item.title)}`} render={({match}) => (
+                <pre>
+                  <code>
+                    { asCode(item.example) }
+                  </code>
+                </pre>
+              )}/>
+            ))
+          ))
+        }
+      </Container>
+    </Container>
+  )
+}
+
+function Showroom({children, ...props}) {
+  return (
+    <Router>
+      <ShowroomWrapper {...props}>
+        <ShowroomList exampleGroups={exampleGroups} />
+        <ShowroomStage exampleGroups={exampleGroups} />
+      </ShowroomWrapper>
+    </Router>
+  )
+}
 
 export default Showroom
