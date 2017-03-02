@@ -7,7 +7,8 @@ class InputExample extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      error: false
+      error: false,
+      someState: 'hello world'
     }
   }
   render() {
@@ -17,6 +18,7 @@ class InputExample extends Component {
           id="example"
           type="text"
           label="Tenants Name"
+          value={this.state.someState}
           placeholder="Janet Wood"
           error={this.state.error}
           errorText="oh shit, you fucked up"
