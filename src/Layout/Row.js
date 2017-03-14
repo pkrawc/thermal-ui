@@ -7,4 +7,5 @@ export const Row = styled.div`
   flex-wrap: wrap;
   margin-right: -0.5rem;
   margin-left: -0.5rem;
+  max-width: 75rem;
 `
