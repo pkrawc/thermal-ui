@@ -105,9 +105,13 @@ export class Input extends Component {
         />
         { type === 'email' ? <span className="mdi mdi-email"></span> : null }
         <label htmlFor={props.id}>{props.label}</label>
-        <span className="error">
-          {errorText}
-        </span>
+        {
+          error ? (
+            <span className="error">
+              {errorText}
+            </span>
+          ) : null
+        }
       </InputWrapper>
     )
   }

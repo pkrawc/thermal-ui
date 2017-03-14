@@ -1,4 +1,4 @@
 export { Column, Container, Row } from './Layout'
-export { Hero, Title, Headline, Subtitle, Text } from './Typography'
+export { Hero, Title, Headline, Subtitle, Text, Small } from './Typography'
 export { Button, Icon } from './General'
-export { Input } from './Fields'
+export { Input, RadioField } from './Fields'
