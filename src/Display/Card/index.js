@@ -7,13 +7,13 @@ import { Button } from '../../General'
 const CardWrapper = styled.div`
   background-color: ${({theme}) => theme.colors ? theme.colors.light : colors.light};
   border-radius: 4px;
-  box-shadow: ${({theme}) => theme.shadows ? theme.shadows.medium : shadows.medium};
-  padding: 0 1em 1em;
+  box-shadow: ${({theme}) => theme.shadows ? theme.shadows.small : shadows.small};
+  padding: 0 1rem;
+  overflow: auto;
   .card-actions {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row-reverse;
-    margin-bottom: -1em;
     button:not(:last-of-type) {
       margin-left: 1em;
     }

@@ -1,10 +1,11 @@
 import React from 'react'
 import { Hero } from '../Hero'
 
-const HeroExample = props =>
+const HeroExample = props => (
   <Hero>
     Hero Title
-  </Hero>
+  </Hero> 
+)
 
 export default {
   title: 'Hero',

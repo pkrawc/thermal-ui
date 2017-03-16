@@ -3,9 +3,9 @@ import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import { colors, shadows } from 'variables'
 
-const ButtonWrapper = styled.span`
+const ButtonWrapper = styled.button`
   a,
-  button {
+  &#{&} {
     padding: 0.5rem 1rem;
     background-color: ${({primary, color, theme}) => {
       if (primary) {
@@ -69,8 +69,8 @@ const ButtonWrapper = styled.span`
 
 export function Button({children, to, onClick, ...props}) {
   return (
-    <ButtonWrapper {...props}>
-      {to ? <Link to={to}>{children}</Link> : <button onClick={onClick}>{children}</button>}
+    <ButtonWrapper {...props} onClick={onClick}>
+      {to ? <Link to={to}>{children}</Link> : <span>{children}</span>}
     </ButtonWrapper>
   )
 }

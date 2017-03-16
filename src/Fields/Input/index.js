@@ -93,9 +93,9 @@ export class Input extends Component {
     this.setState({value: e.target.value})
   }
   render() {
-   const { id, type, value, placeholder, errorText, ...props } = this.props
+   const { id, type, value, placeholder, errorText, error, ...props } = this.props
     return (
-      <InputWrapper {...props}>
+      <InputWrapper {...props} error={error}>
         <input
           id={id}
           type={type}
