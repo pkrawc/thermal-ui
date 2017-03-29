@@ -2,8 +2,7 @@ import React, { PropTypes } from 'react'
 import styled from 'styled-components'
 
 import { colors, shadows, media } from 'variables'
-import { Title } from '../../index'
-import { Button } from '../../index'
+import { Title, Button } from '../../index'
 
 const CardWrapper = styled.div`
   background-color: ${({theme}) => theme.colors ? theme.colors.light : colors.light};
@@ -18,9 +17,7 @@ const CardWrapper = styled.div`
     button:not(:last-of-type) {
       margin-left: 1em;
     }
-    button {
-      margin-bottom: 1em;
-    }
+    button { margin-bottom: 1em; }
   }
 `
 

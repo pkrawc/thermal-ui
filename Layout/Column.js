@@ -1,50 +1,59 @@
+import React, { PropTypes } from 'react'
 import styled from 'styled-components'
 import { media } from 'variables'
 
-const getPercent = (col, total = 12) => `${100 / (total/col)}%`
+const getPercent = (span = 1, totalColumns = 12) => `${(100 / totalColumns) * span}%`
 
-export const Column = styled.div`
+const ColumnWrapper = styled.div`
   display: flex;
   flex-direction: column;
   flex-grow: 1;
   flex-shrink: 0;
-  flex-basis: ${
-    ({smCol, columns}) =>
-      smCol ? getPercent(smCol) : '0'
-  };
-  max-width: ${
-    ({smCol, columns}) =>
-      smCol ? getPercent(smCol) : '100%'
-  };
+  flex-basis: ${ ({sm, columns}) => sm ? getPercent(sm, columns) : '0' };
+  max-width: ${ ({sm, columns}) => sm ? getPercent(sm, columns) : '100%' };
   padding-right: 0.5rem;
   padding-left: 0.5rem;
-  margin-left: ${
-    ({offset}) => offset ? getPercent(offset) : '0'
-  };
+  margin-left: ${ ({offset, columns}) => offset ? getPercent(offset, columns) : '0' };
   @media (min-width: ${media.small}) {
     flex-basis: ${
-      ({smCol, mdCol}) =>
-        mdCol ? getPercent(mdCol) :
-        smCol ? getPercent(smCol) : '0'
+      ({sm, md, columns}) =>
+        md ? getPercent(md, columns) :
+        sm ? getPercent(sm, columns) : '0'
     };
     max-width: ${
-      ({smCol, mdCol}) =>
-        mdCol ? getPercent(mdCol) :
-        smCol ? getPercent(smCol) : '100%'
+      ({sm, md, columns}) =>
+        md ? getPercent(md, columns) :
+        sm ? getPercent(sm, columns) : '100%'
     };
   }
   @media (min-width: ${media.medium}) {
     flex-basis: ${
-      ({smCol, mdCol, lgCol}) =>
-        lgCol ? getPercent(lgCol) :
-        mdCol ? getPercent(mdCol) :
-        smCol ? getPercent(smCol) : '0'
+      ({sm, md, lg, columns}) =>
+        lg ? getPercent(lg, columns) :
+        md ? getPercent(md, columns) :
+        sm ? getPercent(sm, columns) : '0'
     };
     max-width: ${
-      ({smCol, mdCol, lgCol}) =>
-        lgCol ? getPercent(lgCol) :
-        mdCol ? getPercent(mdCol) :
-        smCol ? getPercent(smCol) : '100%'
+      ({sm, md, lg, columns}) =>
+        lg ? getPercent(lg, columns) :
+        md ? getPercent(md, columns) :
+        sm ? getPercent(sm, columns) : '100%'
     };
   }
 `
+
+ColumnWrapper.propTypes = {
+  sm: PropTypes.number,
+  md: PropTypes.number,
+  lg: PropTypes.number,
+  columns: PropTypes.number,
+  offset: PropTypes.number
+}
+
+export default function Column({children, ...props}) {
+  return (
+    <ColumnWrapper {...props}>
+      {children}
+    </ColumnWrapper>
+  )
+}

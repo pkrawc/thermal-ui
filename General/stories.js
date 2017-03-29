@@ -2,7 +2,9 @@ import React from 'react';
 import { storiesOf } from '@kadira/storybook';
 import { withKnobs, text, boolean, number } from '@kadira/storybook-addon-knobs'
 
+import { colors } from 'variables'
 import Button from './Button'
+import Icon from './Icon'
 
 
 const story = storiesOf('General', module)

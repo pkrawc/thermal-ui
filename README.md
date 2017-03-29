@@ -180,7 +180,7 @@ A set of wrappers to create consistent and styled text, no matter the screen
 
 
 ## Contributing
-1. Make sure your contribution is aligned with the Style Guide
+1. Make sure you align your contribution with the Style Guide
 1. Submit a PR
 1. On PR approval:
   - merge into master

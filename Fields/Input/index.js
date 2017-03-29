@@ -1,118 +1,97 @@
 import React, { Component, PropTypes } from 'react'
 import styled from 'styled-components'
 import { colors } from 'variables'
+import shortid from 'shortid'
 
-const InputWrapper = styled.div`
+const InputGroup = styled.div`
   position: relative;
-  padding: 1em 0 2em;
   input {
-    padding: 0.5em 0;
+    padding: 2em 1em 1em;
     background: none;
-    border: none;
-    border-bottom: 2px solid ${({error, theme}) => {
-      if (error) {
-        if (theme.colors) return theme.colors.error
-        else return colors.error
-      } else {
-        if (theme.colors) return theme.colors.disabled
-        else return colors.disabled
-      }
-    }};
-    color: ${({error, theme}) => {
-      if (error) {
-        if (theme.colors) return theme.colors.error
-        else return colors.error
-      } else {
-        if (theme.colors) return theme.colors.dark
-        else return colors.dark
-      }
-    }};
+    border: 2px solid rgba(0,0,0,0.12);
+    border-radius: 2px;
     font-size: 1em;
     outline: none;
     width: 100%;
-    transition: all 200ms ease-in-out;
-    &:hover {
-      border-bottom: 2px solid ${colors.darkSecondary};
-    }
+    transition: all 100ms ease-in-out;
     &:focus {
-      border-bottom: 2px solid ${colors.darkSecondary};
+      background: #F9F9F9;
+      border: 2px solid #137BB5;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+      & + label { transform: translateY(-0.75em) scale(0.75); }
     }
-    &::-webkit-input-placeholder {
-       color: ${colors.disabled};
-    }
-  }
-  input + label {
-    position: absolute;
-    top: 0;
-    left: 0;
-    color: ${({error, theme}) => {
-      if (error) {
-        if (theme.colors) return theme.colors.error
-        else return colors.error
-      } else {
-        if (theme.colors) return theme.colors.darkSecondary
-        else return colors.darkSecondary
+    &.input-error {
+      border: 2px solid ${colors.error};
+      color: ${colors.error};
+      & + label {
+        color:${colors.error};
+        opacity: 0.6;
       }
-    }};
-    font-size: 0.75em;
-    transition: all 200ms ease-in-out;
+    }
+    & + label {
+      position: absolute;
+      top: 1.5em;
+      left: 1rem;
+      font-size: 1em;
+      transform-origin: top left;
+      transform: ${({value, placeholder}) => placeholder ? 'translateY(-0.75em) scale(0.75)' : value.length > 0 ? 'translateY(-0.75em) scale(0.75)' : 'inital'};
+      transition: all 100ms ease-in-out;
+      color: rgba(0,0,0,0.4);
+    }
   }
-  .error {
-    position: absolute;
-    bottom: 1em;
-    right: 0;
-    color: ${({theme}) => theme.colors ? theme.colors.error : colors.error };
+  span.error {
+    color: ${colors.error};
     font-size: 0.75em;
-    text-align: right;
-    visibility: ${({error}) => error ? 'visible' : 'hidden'};
-    opacity: ${({error}) => error ? '1' : '0'};
-    transition: color 200ms ease-in-out, opacity 200ms ease-in-out;
   }
 `
 
-export default class Input extends Component {
+class Input extends Component {
   static propTypes = {
-    id: PropTypes.string.isRequired,
-    label: PropTypes.string.isRequired,
-    type: PropTypes.string.isRequired,
+    defaultValue: PropTypes.string,
     error: PropTypes.bool,
     errorText: PropTypes.string,
+    label: PropTypes.string.isRequired,
     placeholder: PropTypes.string,
+    type: PropTypes.oneOf(['text', 'password', 'email', 'tel']).isRequired,
+    icon: PropTypes.string,
   }
   static defaultProps = {
-    type: 'text'
+    label: 'Input',
+    type: 'text',
+    defaultValue: ''
   }
   constructor(props) {
     super(props)
-    this.state = {
-      value: props.value
-    }
-    this.handleChange = this.handleChange.bind(this)
+    this.id = shortid.generate()
+    this.state = {value: this.props.defaultValue}
   }
-  handleChange(e) {
-    this.setState({value: e.target.value})
+  componentDidMount() {
+    if (this.props.autofocus) this.input.focus()
   }
   render() {
-   const { id, type, value, placeholder, errorText, error, ...props } = this.props
+    const {
+      autofocus,
+      defaultValue,
+      error,
+      errorText,
+      label,
+      placeholder,
+      type } = this.props
     return (
-      <InputWrapper {...props} error={error}>
+      <InputGroup value={this.state.value} placeholder={placeholder}>
         <input
-          id={id}
-          type={type}
+          className={ error ? 'input-error' : '' }
+          defaultValue={defaultValue}
+          id={this.id}
+          onChange={e => this.setState({value: e.target.value})}
           placeholder={placeholder}
-          value={this.state.value}
-          onChange={this.handleChange}
-        />
-        { type === 'email' ? <span className="mdi mdi-email"></span> : null }
-        <label htmlFor={props.id}>{props.label}</label>
-        {
-          error ? (
-            <span className="error">
-              {errorText}
-            </span>
-          ) : null
-        }
-      </InputWrapper>
+          ref={ input => this.input = input }
+          type={type}/>
+        <label htmlFor={this.id}>{label}</label>
+        {error ? <span className="error">Error: {errorText}</span> : null}
+      </InputGroup>
     )
   }
 }
+
+export default Input

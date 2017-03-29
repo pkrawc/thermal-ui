@@ -20,6 +20,7 @@ function loadStories() {
   require('../Display/stories')
   require('../Fields/stories')
   require('../General/stories')
+  require('../Layout/stories')
 }
 
 configure(loadStories, module);

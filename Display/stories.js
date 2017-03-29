@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf, action, linkTo } from '@kadira/storybook';
 import Card, { CardActions } from './Card'
-import { Text } from '../Typography'
+import { Text } from '../index'
 
 storiesOf('Display', module)
   .addWithInfo('Card', 'Description', () => (

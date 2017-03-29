@@ -3,7 +3,7 @@ const webpack = require('webpack')
 
 const config = {
   cache: true,
-  entry: {'index' : resolve(__dirname, 'src/index.js') },
+  entry: {'index' : resolve(__dirname, 'index.js') },
   externals: {
     'react': 'react',
     'react-dom': 'react-dom',

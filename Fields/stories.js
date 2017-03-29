@@ -12,20 +12,13 @@ storiesOf('Fields', module)
   .addDecorator(withKnobs)
   .addWithInfo('Input', 'Description', () => (
     <Input
-      id="example"
-      type="text"
-      label="User Name"
-      value={text('value')}
-      placeholder="Janet Wood"
+      autofocus
+      type="email"
+      label="Email"
       error={boolean('Error Toggle', false)}
-      errorText={text('Error Text', 'You done messed up')}
+      errorText={text('Error Text', 'this email is already in use')}
     />
   ))
   .addWithInfo('Radio Field', 'Description', () => (
-    <RadioSet  name="some name" values={[
-      {
-        title: 'a question worth asking',
-        values: ['option 1', 'option 2']
-      }
-    ]}/>
+    <RadioSet options={['option 1', 'option 2', 'option 3']}/>
   ))
