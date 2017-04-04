@@ -1,4 +1,5 @@
-import Input from './Input'
+import TextInput from './Input'
 import RadioSet from './Radio'
+import CheckBox from './Checkbox'
 
-export { Input, RadioSet }
+export { CheckBox, TextInput, RadioSet }

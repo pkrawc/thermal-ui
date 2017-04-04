@@ -45,7 +45,7 @@ const InputGroup = styled.div`
   }
 `
 
-class Input extends Component {
+export default class TextInput extends Component {
   static propTypes = {
     defaultValue: PropTypes.string,
     error: PropTypes.bool,
@@ -93,5 +93,3 @@ class Input extends Component {
     )
   }
 }
-
-export default Input
