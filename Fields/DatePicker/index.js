@@ -36,3 +36,16 @@ export default class Picker extends Component {
     )
   }
 }
+
+const oldArray = [{id: 5}, {id: 3}, {id: 12}]
+const oldArrayWithIndex = oldArray.map((item, i) => (
+  {i: i, o: item}
+))
+const sortOrder = (a,b) => {
+  if (a.o.id === photo_order[a.i]) return 0
+  else if (a.o.id < photo_order[a.i]) return 1s
+  else return -1
+}
+const newArray = [...oldArray].sort(sortOrder)
+console.log(newArray)
+console.log(oldArray)
