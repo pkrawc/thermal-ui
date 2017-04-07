@@ -1,18 +1,18 @@
 exports[`Input renders without crashing 1`] = `
 <div
-  className="xYQAT"
-  label="input label">
+  className="fwjBwY"
+  placeholder={undefined}
+  value="">
   <input
-    id="1"
+    className=""
+    defaultValue=""
+    id="123"
     onChange={[Function]}
     placeholder={undefined}
-    type="text"
-    value={undefined} />
+    type="text" />
   <label
-    htmlFor={undefined}>
+    htmlFor="123">
     input label
   </label>
-  <span
-    className="error" />
 </div>
 `;

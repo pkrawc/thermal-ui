@@ -1,9 +1,9 @@
 exports[`Button renders a Button without crashing 1`] = `
-<span
-  className="dGnXLd">
-  <button
-    onClick={undefined}>
+<button
+  className="EuKFK"
+  onClick={undefined}>
+  <span>
     Hello World
-  </button>
-</span>
+  </span>
+</button>
 `;
