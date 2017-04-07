@@ -23,6 +23,7 @@ storiesOf('Fields', module)
       label="Email"
       error={boolean('Error Toggle', false)}
       errorText={text('Error Text', 'this email is already in use')}
+      onChange={value => text('value', value)}
     />
   ))
   .addWithInfo('RadioSet', 'Description', _ => (

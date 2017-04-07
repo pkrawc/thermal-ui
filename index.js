@@ -25,6 +25,5 @@ export {
 } from './General'
 
 export {
-  TextInput,
-  RadioSet
+  TextInput
 } from './Fields'

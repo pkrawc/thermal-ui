@@ -75,15 +75,20 @@ export default class TextInput extends Component {
       error,
       errorText,
       label,
+      onChange,
       placeholder,
-      type } = this.props
+      type
+    } = this.props
     return (
       <InputGroup value={this.state.value} placeholder={placeholder}>
         <input
           className={ error ? 'input-error' : '' }
           defaultValue={defaultValue}
           id={this.id}
-          onChange={e => this.setState({value: e.target.value})}
+          onChange={e => {
+            this.setState({value: e.target.value}),
+            onChange(e.target.value)
+          }}
           placeholder={placeholder}
           ref={ input => this.input = input }
           type={type}/>

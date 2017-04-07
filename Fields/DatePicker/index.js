@@ -43,7 +43,7 @@ const oldArrayWithIndex = oldArray.map((item, i) => (
 ))
 const sortOrder = (a,b) => {
   if (a.o.id === photo_order[a.i]) return 0
-  else if (a.o.id < photo_order[a.i]) return 1s
+  else if (a.o.id < photo_order[a.i]) return 1
   else return -1
 }
 const newArray = [...oldArray].sort(sortOrder)
