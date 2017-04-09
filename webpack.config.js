@@ -30,10 +30,7 @@ module.exports = function(env) {
       })
     ],
     resolve: {
-      modules: [
-        resolve(__dirname, 'src'),
-        'node_modules'
-      ],
+      alias: { variables$: resolve(__dirname, './variables.js') },
       extensions: ['.js', '.jsx', '.es6']
     }
   }
