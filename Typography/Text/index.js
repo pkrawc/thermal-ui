@@ -1,7 +1,8 @@
+import React from 'react'
 import styled from 'styled-components'
 import { colors } from 'variables'
 
-const Text = styled.p`
+const TextWrapper = styled.p`
   margin: 1rem 0;
   color: ${({light}) => light ? colors.light : colors.dark};
   font-size: 1em;
@@ -9,4 +10,10 @@ const Text = styled.p`
   line-height: 1.2;
 `
 
-export default Text
+export default function Text({children, ...rest}) {
+  return (
+    <TextWrapper {...rest}>
+      {children}
+    </TextWrapper>
+  )
+}

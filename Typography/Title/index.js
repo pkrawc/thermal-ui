@@ -1,7 +1,8 @@
+import React from 'react'
 import styled from 'styled-components'
 import { colors } from 'variables'
 
-const Title = styled.h2`
+const TitleWrapper = styled.h2`
   margin: 1rem 0;
   color: ${({color, light}) => color ? color : light ? colors.light : colors.dark};
   font-size: 1.5em;
@@ -9,4 +10,10 @@ const Title = styled.h2`
   line-height: 1.2;
 `
 
-export default Title
+export default function Title({children, ...rest}) {
+  return (
+    <TitleWrapper {...rest}>
+      {children}
+    </TitleWrapper>
+  )
+}

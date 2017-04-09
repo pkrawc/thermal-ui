@@ -21,6 +21,7 @@ function loadStories() {
   require('../Fields/stories')
   require('../General/stories')
   require('../Layout/stories')
+  require('../Typography/stories')
 }
 
 configure(loadStories, module);
