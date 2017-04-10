@@ -31,13 +31,10 @@ module.exports = function(env) {
     },
     plugins: [
       new webpack.DefinePlugin({
-        'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
+        'process.env.NODE_ENV': JSON.stringify(env)
       })
     ],
     resolve: {
-      alias: {
-        variables$: resolve(__dirname, 'variables.js')
-      },
       extensions: ['.js', '.jsx', '.es6']
     }
   }

@@ -2,10 +2,10 @@
   "name": "thermal-ui",
   "version": "0.2.6",
   "description": "Thermal UI Components",
-  "main": "./build/index.build.js",
-  "module": "./index.js",
+  "main": "build/index.build.js",
+  "module": "index.js",
   "scripts": {
-    "start": "start-storybook -p 8080",
+    "start": "start-storybook -p 3000",
     "test": "jest",
     "test:update": "jest -u",
     "build": "webpack",
