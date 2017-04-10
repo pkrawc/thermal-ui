@@ -3,7 +3,6 @@
   "version": "0.2.7",
   "description": "Thermal UI Components",
   "main": "build/index.build.js",
-  "module": "index.js",
   "scripts": {
     "start": "start-storybook -p 3000",
     "test": "jest",
