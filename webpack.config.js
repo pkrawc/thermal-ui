@@ -5,7 +5,7 @@ const env = process.env.NODE_ENV
 module.exports = function(env) {
   return {
     cache: true,
-    entry: resolve(__dirname, 'index.js'),
+    entry: {'index' : resolve(__dirname, 'index.js') },
     externals: {
       react: 'react',
       'react-dom': 'react-dom',
@@ -14,14 +14,19 @@ module.exports = function(env) {
     },
     output: {
       path: resolve(__dirname, 'build'),
-      filename: 'index.build.js',
+      filename: '[name].build.js',
+      chunkFilename: '[id].js',
       library: 'thermal-ui',
       libraryTarget: 'umd',
       umdNamedDefine: true
     },
     module: {
       rules: [
-        {test: /\.(jsx?|es6)$/, loader: 'babel-loader', exclude: [/node_modules/]}
+        {
+          test: /\.(jsx?|es6)$/,
+          loader: 'babel-loader',
+          exclude: [/node_modules/]
+        }
       ]
     },
     plugins: [

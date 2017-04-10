@@ -1,14 +1,7 @@
 docs
 __snapshots__
-
-example
-examples
-
-build/example-build.js
-index.html
 karma.conf.js
 webpack.config.js
-webpack.config.test.js
 tests
 *.woff
 *.eot

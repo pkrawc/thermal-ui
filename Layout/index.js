@@ -1,3 +1,5 @@
-export { Column } from './Column'
-export { Container } from './Container'
-export { Row } from './Row'
+import Column from './Column'
+import Container from './Container'
+import Row from './Row'
+
+export { Column, Container, Row }
