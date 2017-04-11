@@ -1,6 +1,6 @@
 exports[`Input renders without crashing 1`] = `
 <div
-  className="fwjBwY"
+  className="fKFdDc"
   placeholder={undefined}
   value="">
   <input
@@ -9,6 +9,11 @@ exports[`Input renders without crashing 1`] = `
     id="123"
     onChange={[Function]}
     placeholder={undefined}
+    test={
+      Object {
+        "id": "1234",
+      }
+    }
     type="text" />
   <label
     htmlFor="123">
