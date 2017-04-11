@@ -74,3 +74,8 @@ export default function Button({children, to, onClick, ...props}) {
     </ButtonWrapper>
   )
 }
+
+export const ButtonGroup = styled.div`
+  display: flex;
+  flex-direction: row-reverse;
+`

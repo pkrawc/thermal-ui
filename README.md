@@ -178,8 +178,11 @@ A set of wrappers to create consistent and styled text, no matter the screen
 
 
 
-
 ## Contributing
+
+Some gotcha's while updating/extending.
+- If you don't spread the props out of and into the styled component then you're going to have a bad time. This creates a bad diff tree for react but it can deal better than you pulling your hair out if you're using this library in another project and can't override a prop or add a className.
+
 1. Make sure you align your contribution with the Style Guide
 1. Submit a PR
 1. On PR approval:

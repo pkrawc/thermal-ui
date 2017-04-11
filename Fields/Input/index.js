@@ -7,7 +7,7 @@ const InputGroup = styled.div`
   position: relative;
   input {
     padding: 2em 1em 1em;
-    background: none;
+    background: ${({dark}) => dark ? 'transparent' : '#F9F9F9'};
     border: 2px solid rgba(0,0,0,0.12);
     border-radius: 2px;
     font-size: 1em;
@@ -15,9 +15,8 @@ const InputGroup = styled.div`
     width: 100%;
     transition: all 100ms ease-in-out;
     &:focus {
-      background: #F9F9F9;
       border: 2px solid #137BB5;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+      box-shadow: 0 3px 6px rgba(0,0,0,0.12);
       & + label { transform: translateY(-0.75em) scale(0.75); }
     }
     &.input-error {
@@ -36,7 +35,7 @@ const InputGroup = styled.div`
       transform-origin: top left;
       transform: ${({value, placeholder}) => placeholder ? 'translateY(-0.75em) scale(0.75)' : value.length > 0 ? 'translateY(-0.75em) scale(0.75)' : 'inital'};
       transition: all 100ms ease-in-out;
-      color: rgba(0,0,0,0.4);
+      color: ${({dark}) => dark ? 'rgba(255,255,255,0.6)' : 'rgba(0,0,0,0.4)'};
     }
   }
   span.error {
@@ -58,7 +57,8 @@ export default class TextInput extends Component {
   static defaultProps = {
     label: 'Input',
     type: 'text',
-    defaultValue: ''
+    defaultValue: '',
+    onChange: e => null
   }
   constructor(props) {
     super(props)
@@ -77,10 +77,11 @@ export default class TextInput extends Component {
       label,
       onChange,
       placeholder,
-      type
+      type,
+      ...rest
     } = this.props
     return (
-      <InputGroup value={this.state.value} placeholder={placeholder}>
+      <InputGroup {...rest} value={this.state.value} placeholder={placeholder}>
         <input
           className={ error ? 'input-error' : '' }
           defaultValue={defaultValue}
@@ -91,7 +92,9 @@ export default class TextInput extends Component {
           }}
           placeholder={placeholder}
           ref={ input => this.input = input }
-          type={type}/>
+          type={type}
+          {...rest}
+        />
         <label htmlFor={this.id}>{label}</label>
         {error ? <span className="error">Error: {errorText}</span> : null}
       </InputGroup>
