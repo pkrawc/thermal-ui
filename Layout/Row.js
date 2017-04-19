@@ -9,7 +9,6 @@ const RowWrapper = styled.div`
   margin-right: -0.5rem;
   margin-left: -0.5rem;
   margin-bottom: 1em;
-  max-width: 75rem;
 `
 export default function Row({columns, children, ...props}) {
   return (

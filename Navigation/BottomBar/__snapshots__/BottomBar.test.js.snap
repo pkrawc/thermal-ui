@@ -3,7 +3,7 @@ exports[`BottomBar renders bottom bar correctly 1`] = `
   className="jAxdXj"
   onClick={[Function]}>
   <div
-    className="iqJFfe"
+    className="cVaydS"
     onClick={[Function]}
     y={100}>
     Hello World

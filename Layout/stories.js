@@ -14,7 +14,7 @@ storiesOf('Layout', module)
     }
     return (
       <Container>
-        <Row>
+        <Row columns={16}>
           <Column sm={4}>
             <div style={styles}>hello</div>
           </Column>

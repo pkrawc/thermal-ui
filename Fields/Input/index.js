@@ -5,10 +5,11 @@ import shortid from 'shortid'
 
 const InputGroup = styled.div`
   position: relative;
+  overflow: hidden;
   input {
     padding: 2em 1em 1em;
     background: ${({dark}) => dark ? 'transparent' : '#F9F9F9'};
-    border: 2px solid rgba(0,0,0,0.12);
+    border: ${({dark}) => dark ? '2px solid rgba(255,255,255,0.6)' : '2px solid rgba(0,0,0,0.12)'};
     border-radius: 2px;
     font-size: 1em;
     outline: none;
@@ -17,7 +18,7 @@ const InputGroup = styled.div`
     &:focus {
       border: 2px solid #137BB5;
       box-shadow: 0 3px 6px rgba(0,0,0,0.12);
-      & + label { transform: translateY(-0.75em) scale(0.75); }
+      & + label { transform: translateY(-0.25em) scale(0.5); }
     }
     &.input-error {
       border: 2px solid ${colors.error};
@@ -29,11 +30,11 @@ const InputGroup = styled.div`
     }
     & + label {
       position: absolute;
-      top: 1.5em;
+      top: 0.75em;
       left: 1rem;
-      font-size: 1em;
+      font-size: 1.5em;
       transform-origin: top left;
-      transform: ${({value, placeholder}) => placeholder ? 'translateY(-0.75em) scale(0.75)' : value.length > 0 ? 'translateY(-0.75em) scale(0.75)' : 'inital'};
+      transform: ${({value, placeholder}) => placeholder ? 'translateY(-0.25em) scale(0.5)' : value.length > 0 ? 'translateY(-0.25em) scale(0.5)' : 'inital'};
       transition: all 100ms ease-in-out;
       color: ${({dark}) => dark ? 'rgba(255,255,255,0.6)' : 'rgba(0,0,0,0.4)'};
     }
